@@ -63,7 +63,7 @@ function LikeButton(props) {
         >
             {
                 loading ?
-                    <div className="lds-hourglass"></div>
+                    <i className="fas fa-spinner fa-spin"></i>
                     : <span
                         className={liked ? "liked" : ""}
                     >

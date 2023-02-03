@@ -1,1 +1,14 @@
+* {
+    box-sizing: border-box;
+}
 
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+}
+
+button {
+    font-family: 'Varela Round', sans-serif;
+    cursor: pointer;
+}

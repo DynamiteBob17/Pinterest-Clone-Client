@@ -1,1 +1,138 @@
+$background-color: #f5f5f5;
+$highlight-color: #e5e5e5;
 
+.App {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .top_bar {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $background-color;
+        border-bottom: 1px solid $highlight-color;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        .top_left {
+            button:first-child {
+                border-bottom-left-radius: 10px;
+            }
+
+            button {
+                font-size: 18px;
+                padding: 10px 20px;
+                border: none;
+                border-bottom: 2px solid transparent;
+                background-color: $background-color;
+                transition: 0.2s ease-in-out all;
+
+                &:hover {
+                    border-bottom: 2px solid black;
+                    background-color: $highlight-color;
+                }
+            }
+
+            .selected {
+                border-bottom: 2px solid black;
+                background-color: $highlight-color;
+            }
+        }
+
+        .top_right {
+            button {
+                font-size: 18px;
+                margin-right: 20px;
+                padding: 0;
+                border: none;
+                background-color: $background-color;
+                border-bottom: 1px solid transparent;
+                transition: 0.2s ease-in-out all;
+
+                &:hover {
+                    border-bottom: 1px solid black;
+                }
+            }
+
+            a {
+                font-size: 18px;
+                margin-right: 20px;
+                color: black;
+                text-decoration: none;
+                transition: 0.2s ease-in-out all;
+                border-bottom: 1px solid transparent;
+
+                &:hover {
+                    border-bottom: 1px solid black;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .App {
+        .top_bar {
+            .top_left {
+                button {
+                    font-size: 14px;
+                    padding: 7.5px 15px;
+                }
+            }
+
+            .top_right {
+                button {
+                    font-size: 14px;
+                    margin-right: 15px;
+                }
+
+                a {
+                    font-size: 14px;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .App {
+        .top_bar {
+            .top_left {
+                button {
+                    font-size: 12px;
+                    padding: 5px 10px;
+                }
+            }
+
+            .top_right {
+                button {
+                    font-size: 12px;
+                    margin-right: 10px;
+                }
+
+                a {
+                    font-size: 12px;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 221px) {
+    .App {
+        .top_bar {
+            .top_left {
+                button:first-child {
+                    border-bottom-left-radius: unset;
+                }
+    
+                button:last-child {
+                    border-bottom-left-radius: 10px;
+                }
+            }
+        }
+    }
+}

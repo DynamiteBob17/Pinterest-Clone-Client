@@ -1,1 +1,172 @@
+.my-masonry-grid {
+    display: flex;
+    width: auto;
+    margin-bottom: 15px;
+    margin-left: -15px;
+    padding: 0 15px;
 
+    .my-masonry-grid_column {
+        padding-left: 15px;
+        background-clip: padding-box;
+        transition: 0.2s ease-in-out all;
+
+        .grid-item {
+            transition: 0.2s ease-in-out all;
+            border-radius: 7px;
+            box-shadow: 0 0 10px #777;
+
+            img {
+                width: 100%;
+            }
+
+            .pic {
+                border-top-left-radius: 7px;
+                border-top-right-radius: 7px;
+            }
+
+            .pic_description {
+                padding: 5px;
+                text-align: center;
+                color: #fff;
+                font-style: italic;
+            }
+
+            .pic_actions {
+                background: darken(#5bc0de, 0%);
+                border-bottom-left-radius: 7px;
+                border-bottom-right-radius: 7px;
+                display: flex;
+                justify-content: space-between;
+
+                .user_avatar {
+                    cursor: pointer;
+                    width: 40px;
+                    height: 40px;
+                    border-bottom-left-radius: 7px;
+                    border-top-right-radius: 7px;
+                }
+
+                .action_buttons {
+                    button {
+                        font-size: 18px;
+                        height: 100%;
+                        transition: 0.2s ease-in-out all;
+                    }
+
+                    button:first-child {
+                        border-top-left-radius: 7px;
+                    }
+    
+                    button:last-child {
+                        border-bottom-right-radius: 7px;
+                    }
+                }
+            }
+        }
+    }
+
+    .my-masonry-grid_column>div {
+        background: #5bc0de;
+        margin-bottom: 15px;
+        transition: 0.2s ease-in-out all;
+    }
+
+    /* https://loading.io/css/ */
+    .lds-spinner {
+        color: official;
+        display: inline-block;
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        transform: translate(-50%, -33%);
+        width: 80px;
+        height: 80px;
+    }
+
+    .lds-spinner div {
+        transform-origin: 40px 40px;
+        animation: lds-spinner 1.2s linear infinite;
+    }
+
+    .lds-spinner div:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 3px;
+        left: 37px;
+        width: 6px;
+        height: 18px;
+        border-radius: 20%;
+        background: #000;
+    }
+
+    .lds-spinner div:nth-child(1) {
+        transform: rotate(0deg);
+        animation-delay: -1.1s;
+    }
+
+    .lds-spinner div:nth-child(2) {
+        transform: rotate(30deg);
+        animation-delay: -1s;
+    }
+
+    .lds-spinner div:nth-child(3) {
+        transform: rotate(60deg);
+        animation-delay: -0.9s;
+    }
+
+    .lds-spinner div:nth-child(4) {
+        transform: rotate(90deg);
+        animation-delay: -0.8s;
+    }
+
+    .lds-spinner div:nth-child(5) {
+        transform: rotate(120deg);
+        animation-delay: -0.7s;
+    }
+
+    .lds-spinner div:nth-child(6) {
+        transform: rotate(150deg);
+        animation-delay: -0.6s;
+    }
+
+    .lds-spinner div:nth-child(7) {
+        transform: rotate(180deg);
+        animation-delay: -0.5s;
+    }
+
+    .lds-spinner div:nth-child(8) {
+        transform: rotate(210deg);
+        animation-delay: -0.4s;
+    }
+
+    .lds-spinner div:nth-child(9) {
+        transform: rotate(240deg);
+        animation-delay: -0.3s;
+    }
+
+    .lds-spinner div:nth-child(10) {
+        transform: rotate(270deg);
+        animation-delay: -0.2s;
+    }
+
+    .lds-spinner div:nth-child(11) {
+        transform: rotate(300deg);
+        animation-delay: -0.1s;
+    }
+
+    .lds-spinner div:nth-child(12) {
+        transform: rotate(330deg);
+        animation-delay: 0s;
+    }
+
+    @keyframes lds-spinner {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+}

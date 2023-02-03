@@ -1,1 +1,19 @@
+.like_button {
+    border: none;
+    padding: 5px;
+    padding-left: 8px;
 
+    &:hover {
+        color: #0275d8;
+    }
+
+    &:disabled {
+        color: black;
+        background-color: #fff;
+        cursor: not-allowed;
+    }
+
+    .liked {
+        color: #0275d8;
+    }
+}

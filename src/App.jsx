@@ -79,7 +79,7 @@ function App() {
               ? <button
                 onClick={handleLogout}
               >
-                Logout
+                logout
               </button>
               : <a
                 href={
