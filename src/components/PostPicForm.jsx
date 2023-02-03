@@ -10,8 +10,6 @@ function PostPicForm(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!pic_url || !pic_description) return;
-
         setPosting(true);
 
         try {
@@ -44,11 +42,11 @@ function PostPicForm(props) {
                 />
                 <input
                     type="text"
-                    placeholder="Pic Description (required)"
+                    placeholder="Caption (max. 100 characters)"
                     value={pic_description}
                     onChange={(e) => setPicDescription(e.target.value)}
                 />
-                <button type="submit" disabled={posting}>
+                <button type="submit" disabled={posting || !pic_url || pic_description.length > 100}>
                     Post
                 </button>
             </form>
