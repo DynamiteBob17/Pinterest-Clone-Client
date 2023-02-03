@@ -3,6 +3,8 @@ import request from '../utils/make_server_request';
 import { VIEW_ALL, VIEW_ME, VIEW_SPECIFIC } from '../utils/constants';
 import LikeButton from './LikeButton';
 import DeleteButton from './DeleteButton';
+import { Tooltip } from 'react-tooltip';
+import Masonry from 'react-masonry-css';
 import './PicGrid.scss';
 
 function PicGrid(props) {
@@ -42,7 +44,7 @@ function PicGrid(props) {
                     -1
                 );
 
-                setPics(data);
+                setPics(data.sort((a, b) => new Date(b.date_created) - new Date(a.date_created)));
             } catch (error) {
                 console.error(error);
             } finally {
@@ -52,15 +54,24 @@ function PicGrid(props) {
     }, [props.view]);
 
     return (
-        <div className="grid">
+        <Masonry
+            breakpointCols={{
+                default: 3,
+                700: 2,
+                420: 1
+            }}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+        >
             {
                 loading
-                    ? <div className="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    ? <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                     : pics.map((pic, idx) =>
-                        <div key={idx} className="grid-item">
+                        <div key={pic._id} className="grid-item">
                             <img
                                 src={pic.pic_url}
                                 alt={pic.pic_description}
+                                className="pic"
                             />
                             <div className="pic_description">
                                 {pic.pic_description}
@@ -69,7 +80,10 @@ function PicGrid(props) {
                                 <img
                                     src={pic.user_avatar_url}
                                     alt={pic.user_login}
-                                    title={'@' + pic.user_login}
+                                    className="user_avatar"
+                                    id={`my-anchor-element-${idx}`}
+                                    data-tooltip-content={`@${pic.user_login}`}
+                                    data-tooltip-place="bottom"
                                     onClick={() => {
                                         if (props.user && pic.user_id === props.user.id) {
                                             props.handleView(VIEW_ME);
@@ -80,23 +94,26 @@ function PicGrid(props) {
                                         }
                                     }}
                                 />
-                                <LikeButton
-                                    pic={pic}
-                                    user={props.user}
-                                />
-                                {
-                                    props.user && pic.user_id === props.user.id &&
-                                    <DeleteButton
+                                <Tooltip anchorId={`my-anchor-element-${idx}`} clickable />
+                                <div className="action_buttons">
+                                    <LikeButton
                                         pic={pic}
                                         user={props.user}
-                                        handleDelete={handleDelete}
                                     />
-                                }
+                                    {
+                                        props.user && pic.user_id === props.user.id &&
+                                        <DeleteButton
+                                            pic={pic}
+                                            user={props.user}
+                                            handleDelete={handleDelete}
+                                        />
+                                    }
+                                </div>
                             </div>
                         </div>
                     )
             }
-        </div>
+        </Masonry>
     );
 }
 
