@@ -30,8 +30,7 @@ function App() {
 
     if (gh_jwt) {
       cookies.set('gh_jwt', gh_jwt, { path: '/' });
-      console.log(gh_jwt.substring(0, 10));
-      window.history.replaceState({}, document.title, '/');
+      window.location.href = '/';
     }
 
     if (cookies.get('gh_jwt') || gh_jwt) {
@@ -43,7 +42,6 @@ function App() {
                 withCredentials: true,
               });
 
-          cookies.set('gh_jwt', gh_jwt, { path: '/' });
           setUser(data);
           setUserView(data.id);
         } catch (error) {
