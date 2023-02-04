@@ -7,8 +7,8 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - main
 env:
-  VITE_GH_CLIENT_ID: '${{ a55c0912a6806455d613 }}'
-  VITE_SERVER_ORIGIN: '${{ https://pc-server-mlinka.onrender.com }}'
+  VITE_GH_CLIENT_ID: 'a55c0912a6806455d613'
+  VITE_SERVER_ORIGIN: 'https://pc-server-mlinka.onrender.com'
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
