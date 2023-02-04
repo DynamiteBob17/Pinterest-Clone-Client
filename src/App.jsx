@@ -30,6 +30,7 @@ function App() {
 
     if (gh_jwt) {
       cookies.set('gh_jwt', gh_jwt);
+      console.log(gh_jwt.substring(0, 10));
       window.history.replaceState({}, document.title, '/');
     }
 
