@@ -51,7 +51,7 @@ function PicGrid(props) {
                 setLoading(false);
             }
         })();
-    }, [props.view]);
+    }, [props.view, props.user, props.userView]);
 
     return (
         <>
