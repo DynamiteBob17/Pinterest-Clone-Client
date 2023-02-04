@@ -54,19 +54,20 @@ function PicGrid(props) {
     }, [props.view]);
 
     return (
-        <Masonry
-            breakpointCols={{
-                default: 3,
-                700: 2,
-                420: 1
-            }}
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column"
-        >
-            {
-                loading
-                    ? <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-                    : pics.map((pic, idx) =>
+        <>
+            {loading && <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>}
+            <Masonry
+                breakpointCols={{
+                    default: 3,
+                    700: 2,
+                    420: 1
+                }}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column"
+            >
+                {
+                    !loading &&
+                    pics.map((pic, idx) =>
                         <div key={pic._id} className="grid-item">
                             <img
                                 src={pic.pic_url}
@@ -112,8 +113,9 @@ function PicGrid(props) {
                             </div>
                         </div>
                     )
-            }
-        </Masonry>
+                }
+            </Masonry>
+        </>
     );
 }
 
