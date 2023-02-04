@@ -29,12 +29,12 @@ function App() {
     const gh_jwt = new URLSearchParams(window.location.search).get('gh_jwt');
 
     if (gh_jwt) {
-      cookies.set('gh_jwt', gh_jwt);
+      cookies.set('gh_jwt', gh_jwt, { path: '/' });
       console.log(gh_jwt.substring(0, 10));
       window.history.replaceState({}, document.title, '/');
     }
 
-    if (cookies.get('gh_jwt')) {
+    if (cookies.get('gh_jwt') || gh_jwt) {
       (async function () {
         try {
           const { data } =
@@ -43,6 +43,7 @@ function App() {
                 withCredentials: true,
               });
 
+          cookies.set('gh_jwt', gh_jwt, { path: '/' });
           setUser(data);
           setUserView(data.id);
         } catch (error) {
