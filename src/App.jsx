@@ -3,7 +3,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import PostPicForm from './components/PostPicForm';
 import PicGrid from './components/PicGrid';
-import { VIEW_ALL, VIEW_ME, VIEW_SPECIFIC, VIEW_POST } from './utils/constants';
+import { VIEW_ALL, VIEW_ME, VIEW_POST } from './utils/constants';
 import './App.scss';
 const cookies = new Cookies();
 
@@ -26,6 +26,13 @@ function App() {
   }
 
   useEffect(() => {
+    const gh_jwt = new URLSearchParams(window.location.search).get('gh_jwt');
+
+    if (gh_jwt) {
+      cookies.set('gh_jwt', gh_jwt);
+      window.history.replaceState({}, document.title, '/');
+    }
+
     if (cookies.get('gh_jwt')) {
       (async function () {
         try {
