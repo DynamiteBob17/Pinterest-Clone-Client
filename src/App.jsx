@@ -28,22 +28,17 @@ function App() {
   useEffect(() => {
     const gh_jwt = new URLSearchParams(window.location.search).get('gh_jwt');
 
-    if (gh_jwt) {
-      cookies.set('gh_jwt', gh_jwt, { path: '/' });
-      window.location.href = '/';
-    }
-
     if (cookies.get('gh_jwt') || gh_jwt) {
       (async function () {
         try {
           const { data } =
             await axios
-              .get(import.meta.env.VITE_SERVER_ORIGIN + '/auth/me', {
-                withCredentials: true,
-              });
+              .get(import.meta.env.VITE_SERVER_ORIGIN + `/auth/me/${cookies.get('gh_jwt') || gh_jwt}`);
 
-          setUser(data);
-          setUserView(data.id);
+          cookies.set('gh_jwt', data.token, { path: '/' });
+          window.history.replaceState({}, document.title, '/');
+          setUser(data.user);
+          setUserView(data.user.id);
         } catch (error) {
           console.error(error);
           cookies.remove('gh_jwt');
