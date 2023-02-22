@@ -7,8 +7,8 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - main
 env:
-  VITE_GH_CLIENT_ID: 'a55c0912a6806455d613'
-  VITE_SERVER_ORIGIN: 'https://pc-server-mlinka.onrender.com'
+  VITE_GH_CLIENT_ID: 6d295abc489ac0dda6f6
+  VITE_SERVER_ORIGIN: https://pintclone-server.onrender.com
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -18,6 +18,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PINTCLONEMLINKA }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MLINKA_PINTCLONE }}'
           channelId: live
-          projectId: pintclonemlinka
+          projectId: mlinka-pintclone
