@@ -22,11 +22,11 @@ function PicGrid(props) {
                 props.user.id
             );
 
-            setDeleting(false);
             setPics(pics.filter(pic => pic._id !== _id));
         } catch (error) {
-            setDeleting(false);
             console.error(error);
+        } finally {
+            setDeleting(false);
         }
     }
 
