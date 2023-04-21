@@ -5,7 +5,7 @@ name: Deploy to Firebase Hosting on PR
 'on': pull_request
 env:
   VITE_GH_CLIENT_ID: dbef73a405c613ed3bc9
-  VITE_SERVER_ORIGIN: https://pintclone-server.onrender.com
+  VITE_SERVER_ORIGIN: https://crabby-fox-rugby-shirt.cyclic.app/
 jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
