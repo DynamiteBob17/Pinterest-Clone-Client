@@ -35,8 +35,6 @@ function PicGrid(props) {
 
         (async function () {
             try {
-                await request('GET', '/', null, -1);
-
                 const path = `/public/pics/${props.view === VIEW_ALL ? '' : props.userView}`;
 
                 const data = await request(
