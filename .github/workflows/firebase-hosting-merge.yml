@@ -8,7 +8,7 @@ name: Deploy to Firebase Hosting on merge
       - main
 env:
   VITE_GH_CLIENT_ID: dbef73a405c613ed3bc9
-  VITE_SERVER_ORIGIN: https://lazy-pink-butterfly-wrap.cyclic.app
+  VITE_SERVER_ORIGIN: https://pintclone-server.onrender.com
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest

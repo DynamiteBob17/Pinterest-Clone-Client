@@ -35,6 +35,8 @@ function PicGrid(props) {
 
         (async function () {
             try {
+                await axios.get(import.meta.env.VITE_SERVER_ORIGIN + '/');
+
                 const path = `/public/pics/${props.view === VIEW_ALL ? '' : props.userView}`;
 
                 const data = await request(

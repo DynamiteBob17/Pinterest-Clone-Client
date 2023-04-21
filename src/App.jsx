@@ -31,6 +31,8 @@ function App() {
     if (cookies.get('gh_jwt') || gh_jwt) {
       (async function () {
         try {
+          await axios.get(import.meta.env.VITE_SERVER_ORIGIN + '/');
+
           const { data } =
             await axios
               .get(import.meta.env.VITE_SERVER_ORIGIN + `/auth/me/${cookies.get('gh_jwt') || gh_jwt}`);
