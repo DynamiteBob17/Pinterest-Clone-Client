@@ -5,16 +5,16 @@ name: Deploy to Firebase Hosting on PR
 'on': pull_request
 env:
   VITE_GH_CLIENT_ID: dbef73a405c613ed3bc9
-  VITE_SERVER_ORIGIN: https://chartreuse-green-adder-ring.cyclic.app
+  VITE_SERVER_ORIGIN: https://lime-starfish-cuff.cyclic.app
 jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MLINKA_PINTCLONE }}'
-          projectId: mlinka-pintclone
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PINTERESTCLONEMLINKA }}'
+          projectId: pinterestclonemlinka
