@@ -1,7 +1,6 @@
 # About
 [here](https://github.com/DynamiteBob17/Pinterest-Clone-Server) is the server repository for this client
 - users can login through GitHub, post photos by url, like/unlike posts, delete them, etc.
-- [live demo](https://clipchamp.com/watch/eKihvW7KBjr)
 
 ## How to use
 1. Create a **.env** or appropriate file and set up your environment similar to how it's set up in the **example.env** file in this repository
